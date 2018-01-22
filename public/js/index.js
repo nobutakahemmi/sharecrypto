@@ -1,6 +1,6 @@
 (function() {
     var config = {
-    apiKey: "AIzaSyDIJrMpR-Cu_wNg1mdDusRXQ7BaxcF7IgM",
+    apiKey: "",
     authDomain: "sharecrypto-2f276.firebaseapp.com",
     databaseURL: "https://sharecrypto-2f276.firebaseio.com",
     projectId: "sharecrypto-2f276",
@@ -29,15 +29,15 @@ function fetchReferralLink() {
 fetchReferralLink();
 
 function submitReferralLink() {
-   const submitLinkTextBox = document.getElementById("submitLinkTextBox") 
-   
+   const submitLinkTextBox = document.getElementById("submitLinkTextBox")
+
    var dbRef = firebase.database().ref().child('referralLinks');
    // Get a key for a new Post.
    if(ValidURL(submitLinkTextBox.value)) {
      var newLinkRef = dbRef.push();
      newLinkRef.set(submitLinkTextBox.value);
      submitLinkTextBox.value = "";
-     swal("Good job!", "Your Referral has been submitted successfully!", "success");   
+     swal("Good job!", "Your Referral has been submitted successfully!", "success");
    }else {
        swal("Try Again!", "Please submit a valid Referral Link!", "error");
    }
